@@ -8,18 +8,18 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/piero/Downloads/Arbol_B/cmake-build-debug"/>
+				<Option working_dir="C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/Arbol_B/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/Arbol_B/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/Arbol_B/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/Arbol_B/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Arbol_B">
-				<Option output="C:/Users/piero/Downloads/Arbol_B/cmake-build-debug/Arbol_B.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/piero/Downloads/Arbol_B/cmake-build-debug"/>
+				<Option output="C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug/Arbol_B.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -32,15 +32,15 @@
 					<Add directory="C:/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/Arbol_B/cmake-build-debug/Makefile&quot;  VERBOSE=1 Arbol_B"/>
-					<CompileFile command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/Arbol_B/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/Arbol_B/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/Arbol_B/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug/Makefile&quot;  VERBOSE=1 Arbol_B"/>
+					<CompileFile command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Arbol_B/fast">
-				<Option output="C:/Users/piero/Downloads/Arbol_B/cmake-build-debug/Arbol_B.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/piero/Downloads/Arbol_B/cmake-build-debug"/>
+				<Option output="C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug/Arbol_B.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -53,37 +53,43 @@
 					<Add directory="C:/MinGW/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/Arbol_B/cmake-build-debug/Makefile&quot;  VERBOSE=1 Arbol_B/fast"/>
-					<CompileFile command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/Arbol_B/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/Arbol_B/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/Arbol_B/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug/Makefile&quot;  VERBOSE=1 Arbol_B/fast"/>
+					<CompileFile command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="C:/Users/piero/Downloads/Arbol_B/cmake-build-debug"/>
+				<Option working_dir="C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/Arbol_B/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/Arbol_B/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/Arbol_B/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/Arbol_B/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/piero/Downloads/Arbol_B/cmake-build-debug"/>
+				<Option working_dir="C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/Arbol_B/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/Arbol_B/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/Arbol_B/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/Arbol_B/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/piero/Downloads/Arbol_B/main.cpp">
+		<Unit filename="C:/Users/piero/Downloads/b-tree-Piero16301/btree.h">
 			<Option target="Arbol_B"/>
 		</Unit>
-		<Unit filename="C:/Users/piero/Downloads/Arbol_B/CMakeLists.txt">
+		<Unit filename="C:/Users/piero/Downloads/b-tree-Piero16301/main.cpp">
+			<Option target="Arbol_B"/>
+		</Unit>
+		<Unit filename="C:/Users/piero/Downloads/b-tree-Piero16301/node.h">
+			<Option target="Arbol_B"/>
+		</Unit>
+		<Unit filename="C:/Users/piero/Downloads/b-tree-Piero16301/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/piero/Downloads/Arbol_B/main.cpp" "C:/Users/piero/Downloads/Arbol_B/cmake-build-debug/CMakeFiles/Arbol_B.dir/main.cpp.obj"
+  "C:/Users/piero/Downloads/b-tree-Piero16301/main.cpp" "C:/Users/piero/Downloads/b-tree-Piero16301/cmake-build-debug/CMakeFiles/Arbol_B.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

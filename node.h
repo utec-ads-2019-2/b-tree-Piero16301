@@ -12,7 +12,7 @@ class Node {
     vector<Node<T>*> childs;
     bool isLeaf;
 
-    public: 
+    public:
         explicit Node(unsigned int size, bool isLeaf = true) : size(size), isLeaf(isLeaf) {
             keys.resize(size - 1);
             childs.resize(size);

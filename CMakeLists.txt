@@ -3,4 +3,4 @@ project(Arbol_B)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Arbol_B main.cpp)
+add_executable(Arbol_B main.cpp btree.h node.h)
