@@ -80,13 +80,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/piero/Downloads/b-tree-Piero16301/btree.h">
+		<Unit filename="C:/Users/piero/Downloads/b-tree-Piero16301/Arbol_B.h">
+			<Option target="Arbol_B"/>
+		</Unit>
+		<Unit filename="C:/Users/piero/Downloads/b-tree-Piero16301/Nodo.h">
 			<Option target="Arbol_B"/>
 		</Unit>
 		<Unit filename="C:/Users/piero/Downloads/b-tree-Piero16301/main.cpp">
-			<Option target="Arbol_B"/>
-		</Unit>
-		<Unit filename="C:/Users/piero/Downloads/b-tree-Piero16301/node.h">
 			<Option target="Arbol_B"/>
 		</Unit>
 		<Unit filename="C:/Users/piero/Downloads/b-tree-Piero16301/CMakeLists.txt">
