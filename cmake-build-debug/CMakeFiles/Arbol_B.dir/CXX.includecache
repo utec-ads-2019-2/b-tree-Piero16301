@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/piero/Downloads/Arbol_B/ArbolB.h
+Nodo.h
+C:/Users/piero/Downloads/Arbol_B/Nodo.h
+
+C:/Users/piero/Downloads/Arbol_B/Nodo.h
+vector
+-
+
+C:/Users/piero/Downloads/Arbol_B/main.cpp
+iostream
+-
+ArbolB.h
+C:/Users/piero/Downloads/Arbol_B/ArbolB.h
+
