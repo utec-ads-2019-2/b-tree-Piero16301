@@ -6,17 +6,21 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/piero/Downloads/Arbol_B/ArbolB.h
+C:/Users/piero/Downloads/b-tree-Piero16301/ArbolB.h
 Nodo.h
-C:/Users/piero/Downloads/Arbol_B/Nodo.h
+C:/Users/piero/Downloads/b-tree-Piero16301/Nodo.h
 
-C:/Users/piero/Downloads/Arbol_B/Nodo.h
+C:/Users/piero/Downloads/b-tree-Piero16301/Nodo.h
 vector
 -
+algorithm
+-
+iterator
+-
 
-C:/Users/piero/Downloads/Arbol_B/main.cpp
+C:/Users/piero/Downloads/b-tree-Piero16301/main.cpp
 iostream
 -
 ArbolB.h
-C:/Users/piero/Downloads/Arbol_B/ArbolB.h
+C:/Users/piero/Downloads/b-tree-Piero16301/ArbolB.h
 

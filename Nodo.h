@@ -2,6 +2,8 @@
 #define ARBOL_B_NODO_H
 
 #include <vector>
+#include <algorithm>
+#include <iterator>
 
 using namespace std;
 
@@ -18,7 +20,7 @@ private:
     bool esHoja;
 
 public:
-    explicit Nodo(unsigned int gradoMinimo, bool esHoja) : gradoMinimo(gradoMinimo), esHoja(esHoja), indices(gradoMinimo - 1), hijos(gradoMinimo) {
+    explicit Nodo(unsigned int gradoMinimo, bool esHoja) : gradoMinimo(gradoMinimo), esHoja(esHoja), indices(2 * gradoMinimo - 1), hijos(2 * gradoMinimo) {
         actualGradoMinimo = 0;
     }
 
@@ -35,7 +37,7 @@ public:
             while (i >= 0 && indices[i] > valor) {
                 i--;
             }
-            if (hijos[i + 1]->actualGradoMinimo == gradoMinimo - 1) {
+            if (hijos[i + 1]->actualGradoMinimo == 2 * gradoMinimo - 1) {
                 intercambiarHijo(i + 1, hijos[i + 1]);
                 if (indices[i + 1] < valor) {
                     i++;
@@ -74,7 +76,7 @@ public:
             if (!esHoja) {
                 hijos[i]->recorrerNodos();
             }
-            cout << ' ' << indices[i];
+            cout << indices[i] << "  ";
         }
         if (!esHoja) {
             hijos[i]->recorrerNodos();
@@ -93,6 +95,17 @@ public:
             return nullptr;
         }
         return hijos[i]->buscar(valor);
+    }
+
+    void killSelf() {
+        if (!esHoja) {
+            for (int i = 0; i < hijos.size(); ++i) {
+                if (hijos[i]) {
+                    hijos[i]->killSelf();
+                }
+            }
+        }
+        delete this;
     }
 
     friend class ArbolB <T>;

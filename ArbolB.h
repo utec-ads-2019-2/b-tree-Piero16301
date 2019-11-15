@@ -23,18 +23,24 @@ public:
             raiz->actualGradoMinimo = 1;
             return true;
         }
-        if (raiz->actualGradoMinimo == grado - 1) {
-            auto *temporal = new Nodo<T>(grado, false);
-            temporal->hijos[0] = raiz;
-            temporal->intercambiarHijo(0, raiz);
-            int i = 0;
-            if (temporal->indices[0] < valor) {
-                i++;
+        if (!buscar(valor)) {
+            if (raiz->actualGradoMinimo == 2 * grado - 1) {
+                auto *temporal = new Nodo<T>(grado, false);
+                temporal->hijos[0] = raiz;
+                temporal->intercambiarHijo(0, raiz);
+                int i = 0;
+                if (temporal->indices[0] < valor) {
+                    i++;
+                }
+                temporal->hijos[i]->insertarNoLLeno(valor);
+                raiz = temporal;
+                return true;
+            } else {
+                raiz->insertarNoLLeno(valor);
+                return true;
             }
-            temporal->hijos[i]->insertarNoLLeno(valor);
-            raiz = temporal;
         } else {
-            raiz->insertarNoLLeno(valor);
+            return false;
         }
     }
 
@@ -48,7 +54,11 @@ public:
         }
     }
 
-    ~ArbolB() = default;
+    ~ArbolB() {
+        if (raiz) {
+            raiz->killSelf();
+        }
+    }
 };
 
 #endif //ARBOL_B_ARBOLB_H

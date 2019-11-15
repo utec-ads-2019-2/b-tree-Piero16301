@@ -8,12 +8,12 @@ int main() {
     ArbolB <int> arbolB(3);
     arbolB.insertar(10);
     arbolB.insertar(20);
-    arbolB.insertar(5);
-    arbolB.insertar(6);
-    arbolB.insertar(12);
     arbolB.insertar(30);
-    arbolB.insertar(7);
-    arbolB.insertar(17);
+    arbolB.insertar(40);
+    arbolB.insertar(50);
+    arbolB.insertar(60);
+    arbolB.insertar(70);
+    arbolB.insertar(80);
     arbolB.imprimir();
     return 0;
 }
