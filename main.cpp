@@ -5,15 +5,15 @@
 using namespace std;
 
 int main() {
-    ArbolB <int> arbolB(3);
-    arbolB.insertar(10);
-    arbolB.insertar(20);
-    arbolB.insertar(30);
-    arbolB.insertar(40);
-    arbolB.insertar(50);
-    arbolB.insertar(60);
-    arbolB.insertar(70);
-    arbolB.insertar(80);
+    ArbolB <double> arbolB(3);
+    arbolB.insertar(1.1);
+    arbolB.insertar(2.2);
+    arbolB.insertar(3.3);
+    arbolB.insertar(4.4);
+    arbolB.insertar(5.5);
+    arbolB.insertar(6.6);
+    arbolB.insertar(7.7);
+    arbolB.insertar(8.8);
     arbolB.imprimir();
     return 0;
 }

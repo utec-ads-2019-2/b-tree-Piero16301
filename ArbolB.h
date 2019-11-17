@@ -7,10 +7,10 @@ template <typename T>
 class ArbolB {
 private:
     Nodo <T>* raiz;
-    unsigned int grado;
+    int grado;
 
 public:
-    explicit ArbolB(unsigned int grado) : grado(grado), raiz(nullptr) {};
+    explicit ArbolB(int grado) : grado(grado), raiz(nullptr) {};
 
     Nodo <T>* buscar(T valor) {
         return (raiz) ? raiz->buscar(valor) : nullptr;
@@ -23,24 +23,20 @@ public:
             raiz->actualGradoMinimo = 1;
             return true;
         }
-        if (!buscar(valor)) {
-            if (raiz->actualGradoMinimo == 2 * grado - 1) {
-                auto *temporal = new Nodo<T>(grado, false);
-                temporal->hijos[0] = raiz;
-                temporal->intercambiarHijo(0, raiz);
-                int i = 0;
-                if (temporal->indices[0] < valor) {
-                    i++;
-                }
-                temporal->hijos[i]->insertarNoLLeno(valor);
-                raiz = temporal;
-                return true;
-            } else {
-                raiz->insertarNoLLeno(valor);
-                return true;
+        if (raiz->actualGradoMinimo == 2 * grado - 1) {
+            auto *temporal = new Nodo<T>(grado, false);
+            temporal->hijos[0] = raiz;
+            temporal->separarHijo(0, raiz);
+            int i = 0;
+            if (temporal->indices[0] < valor) {
+                i++;
             }
+            temporal->hijos[i]->insertarNoLLeno(valor);
+            raiz = temporal;
+            return true;
         } else {
-            return false;
+            raiz->insertarNoLLeno(valor);
+            return true;
         }
     }
 
@@ -51,6 +47,7 @@ public:
     void imprimir() {
         if (raiz) {
             raiz->recorrerNodos();
+            cout << endl;
         }
     }
 

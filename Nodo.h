@@ -13,15 +13,23 @@ class ArbolB;
 template <typename T>
 class Nodo {
 private:
-    unsigned int gradoMinimo;
-    unsigned int actualGradoMinimo;
-    vector <unsigned int> indices;
+    int gradoMinimo;
+    int actualGradoMinimo;
+    vector <T> indices;
     vector < Nodo<T>* > hijos;
     bool esHoja;
 
 public:
-    explicit Nodo(unsigned int gradoMinimo, bool esHoja) : gradoMinimo(gradoMinimo), esHoja(esHoja), indices(2 * gradoMinimo - 1), hijos(2 * gradoMinimo) {
+    explicit Nodo(int gradoMinimo, bool esHoja) : gradoMinimo(gradoMinimo), esHoja(esHoja), indices(2 * gradoMinimo - 1), hijos(2 * gradoMinimo) {
         actualGradoMinimo = 0;
+    }
+
+    int encontrarIndice(T indice) {
+        int indiceTemporal = 0;
+        while (indiceTemporal < actualGradoMinimo && indices[indiceTemporal] < indice) {
+            ++indiceTemporal;
+        }
+        return indiceTemporal;
     }
 
     void insertarNoLLeno(T valor) {
@@ -38,7 +46,7 @@ public:
                 i--;
             }
             if (hijos[i + 1]->actualGradoMinimo == 2 * gradoMinimo - 1) {
-                intercambiarHijo(i + 1, hijos[i + 1]);
+                separarHijo(i + 1, hijos[i + 1]);
                 if (indices[i + 1] < valor) {
                     i++;
                 }
@@ -47,7 +55,7 @@ public:
         }
     }
 
-    void intercambiarHijo(T indice, Nodo <T> *hermano) {
+    void separarHijo(T indice, Nodo <T> *hermano) {
         auto *temporal = new Nodo<T>(hermano->gradoMinimo, hermano->esHoja);
         temporal->actualGradoMinimo = gradoMinimo - 1;
         for (int i = 0; i < gradoMinimo - 1; ++i) {
@@ -76,7 +84,7 @@ public:
             if (!esHoja) {
                 hijos[i]->recorrerNodos();
             }
-            cout << indices[i] << "  ";
+            cout << indices[i] << " ";
         }
         if (!esHoja) {
             hijos[i]->recorrerNodos();
@@ -95,6 +103,72 @@ public:
             return nullptr;
         }
         return hijos[i]->buscar(valor);
+    }
+
+    T obtenerPadre(int indice) {
+
+    }
+
+    T obtenerHijo(int indice) {
+
+    }
+
+    void unir(int indice) {
+
+    }
+
+    void llenarHijo(int indice) {
+
+    }
+
+    void eliminarNoHoja(int indice) {
+        T temporal = indices[indice];
+        if (hijos[indice]->actualGradoMinimo >= gradoMinimo) {
+            T padre = obtenerPadre(indice);
+            indices[indice] = padre;
+            hijos[indice]->eliminar(padre);
+        }
+        else if (hijos[indice + 1]->actualGradoMinimo >= gradoMinimo) {
+            T hijo = obtenerHijo(indice);
+            indices[indice] = hijo;
+            hijos[indice + 1]->eliminar();
+        } else {
+            unir(indice);
+            hijos[indice]->eliminar();
+        }
+    }
+
+    void eliminarHoja(int indice) {
+        for (int i = indice + 1; i < actualGradoMinimo; ++i) {
+            indices[i - 1] = indices[i];
+        }
+        actualGradoMinimo--;
+    }
+
+    bool eliminar(T valor) {
+        int indiceBase = encontrarIndice(valor);
+        if (indiceBase < actualGradoMinimo && indices[indiceBase] == valor) {
+            if (esHoja) {
+                eliminarHoja(indiceBase);
+            } else {
+                eliminarNoHoja(indiceBase);
+            }
+            return true;
+        } else {
+            if (esHoja) {
+                return false;
+            }
+            bool puntoPartida = indiceBase == actualGradoMinimo;
+            if (hijos[indiceBase]->actualGradoMinimo < gradoMinimo) {
+                llenarHijo(indiceBase);
+            }
+            if (puntoPartida && indiceBase > actualGradoMinimo) {
+                hijos[indiceBase - 1]->eliminar(valor);
+            } else {
+                hijos[indiceBase]->eliminar(valor);
+            }
+        }
+        return true;
     }
 
     void killSelf() {
