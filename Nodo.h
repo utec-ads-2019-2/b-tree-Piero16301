@@ -20,9 +20,7 @@ private:
     bool esHoja;
 
 public:
-    explicit Nodo(int gradoMinimo, bool esHoja) : gradoMinimo(gradoMinimo), esHoja(esHoja), indices(2 * gradoMinimo - 1), hijos(2 * gradoMinimo) {
-        actualGradoMinimo = 0;
-    }
+    explicit Nodo(int gradoMinimo, bool esHoja) : gradoMinimo(gradoMinimo), esHoja(esHoja), indices(2 * gradoMinimo - 1), hijos(2 * gradoMinimo), actualGradoMinimo{0} {}
 
     int encontrarIndice(T indice) {
         int indiceTemporal = 0;
@@ -106,19 +104,98 @@ public:
     }
 
     T obtenerPadre(int indice) {
-
+        Nodo <T> *actual = hijos[indice];
+        while (!actual->esHoja) {
+            actual = actual->hijos[actual->actualGradoMinimo];
+        }
+        return actual->indices[actual->actualGradoMinimo - 1];
     }
 
     T obtenerHijo(int indice) {
-
+        Nodo <T> *actual = hijos[indice + 1];
+        while (!actual->esHoja) {
+            actual = actual->hijos[0];
+        }
+        return actual->indices[0];
     }
 
     void unir(int indice) {
+        Nodo <T> *hijo = hijos[indice];
+        Nodo <T> *hermano = hijos[indice + 1];
+        hijo->indices[gradoMinimo - 1] = indices[indice];
+        for (int i = 0; i < hermano->actualGradoMinimo; ++i) {
+            hijo->indices[i + gradoMinimo] = hermano->indices[i];
+        }
+        if (!hijo->esHoja) {
+            for (int i = 0; i <= hermano->actualGradoMinimo; ++i) {
+                hijo->hijos[i + gradoMinimo] = hermano->hijos[i];
+            }
+        }
+        for (int i = indice + 1; i < actualGradoMinimo; ++i) {
+            indices[i - 1] = indices[i];
+        }
+        for (int i = indice + 2; i <= actualGradoMinimo; ++i) {
+            hijos[i - 1] = hijos[i];
+        }
+        hijo->actualGradoMinimo += hermano->actualGradoMinimo + 1;
+        actualGradoMinimo--;
+        delete hermano;
+    }
 
+    void prestarAnterior(int indice) {
+        Nodo <T> *hijo = hijos[indice];
+        Nodo <T> *hermano = hijos[indice - 1];
+        for (int i = hijo->actualGradoMinimo - 1; i >= 0; --i) {
+            hijo->indices[i + 1] = hijo->indices[i];
+        }
+        if (!hijo->esHoja) {
+            for (int i = hijo->actualGradoMinimo; i >= 0; --i) {
+                hijo->hijos[i + 1] = hijo->hijos[i];
+            }
+        }
+        hijo->indices[0] = indices[indice - 1];
+        if (!hijo->esHoja) {
+            hijo->hijos[0] = hermano->hijos[hermano->actualGradoMinimo];
+        }
+        indices[indice - 1] = hermano->indices[hermano->actualGradoMinimo - 1];
+        hijo->actualGradoMinimo++;
+        hermano->actualGradoMinimo--;
+    }
+
+    void prestarSiguiente(int indice) {
+        Nodo <T> *hijo = hijos[indice];
+        Nodo <T> *hermano = hijos[indice + 1];
+        hijo->indices[hijo->actualGradoMinimo] = indices[indice];
+        if (!hijo->esHoja) {
+            hijo->hijos[hijo->actualGradoMinimo + 1] = hermano->hijos[0];
+        }
+        indices[indice] = hermano->indices[0];
+        for (int i = 1; i < hermano->actualGradoMinimo; ++i) {
+            hermano->indices[i - 1] = hermano->indices[i];
+        }
+        if (!hermano->esHoja) {
+            for (int i = 1; i <= hermano->actualGradoMinimo; ++i) {
+                hermano->hijos[i - 1] = hermano->hijos[i];
+            }
+        }
+        hijo->actualGradoMinimo++;
+        hermano->actualGradoMinimo--;
     }
 
     void llenarHijo(int indice) {
-
+        if (indice != 0 && hijos[indice - 1]->actualGradoMinimo >= gradoMinimo) {
+            prestarAnterior(indice);
+        }
+        else if (indice != actualGradoMinimo && hijos[indice + 1]->actualGradoMinimo >= gradoMinimo) {
+            prestarSiguiente(indice);
+        }
+        else {
+            if (indice != actualGradoMinimo) {
+                unir(indice);
+            } else {
+                unir(indice - 1);
+            }
+        }
     }
 
     void eliminarNoHoja(int indice) {
@@ -131,10 +208,11 @@ public:
         else if (hijos[indice + 1]->actualGradoMinimo >= gradoMinimo) {
             T hijo = obtenerHijo(indice);
             indices[indice] = hijo;
-            hijos[indice + 1]->eliminar();
-        } else {
+            hijos[indice + 1]->eliminar(hijo);
+        }
+        else {
             unir(indice);
-            hijos[indice]->eliminar();
+            hijos[indice]->eliminar(temporal);
         }
     }
 
@@ -145,7 +223,7 @@ public:
         actualGradoMinimo--;
     }
 
-    bool eliminar(T valor) {
+    void eliminar(T valor) {
         int indiceBase = encontrarIndice(valor);
         if (indiceBase < actualGradoMinimo && indices[indiceBase] == valor) {
             if (esHoja) {
@@ -153,10 +231,10 @@ public:
             } else {
                 eliminarNoHoja(indiceBase);
             }
-            return true;
         } else {
             if (esHoja) {
-                return false;
+                cout << "El valor " << valor << " no se encuentra en el arbol" << endl;
+                return;
             }
             bool puntoPartida = indiceBase == actualGradoMinimo;
             if (hijos[indiceBase]->actualGradoMinimo < gradoMinimo) {
@@ -168,7 +246,6 @@ public:
                 hijos[indiceBase]->eliminar(valor);
             }
         }
-        return true;
     }
 
     void killSelf() {
