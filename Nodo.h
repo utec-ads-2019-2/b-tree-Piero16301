@@ -4,6 +4,7 @@
 #include <vector>
 #include <algorithm>
 #include <iterator>
+#include <queue> 
 
 using namespace std;
 
@@ -76,8 +77,12 @@ public:
         actualGradoMinimo++;
     }
 
+    /*
+    El tamaño de los nodos no es el correcto,
+    hay también un segmentation fault
+    */
     void recorrerNodos() {
-        int i;
+        /*int i;
         for (i = 0; i < actualGradoMinimo; ++i) {
             if (!esHoja) {
                 hijos[i]->recorrerNodos();
@@ -86,6 +91,28 @@ public:
         }
         if (!esHoja) {
             hijos[i]->recorrerNodos();
+        }*/
+
+        /*queue<Nodo<T>*> next;
+        next.push(this);
+
+        while (!next.empty()) {
+            Nodo<T>* temp = next.front();
+            next.pop();
+
+            temp->printIndexes();
+
+            for (int i = 0; i < temp->hijos.size(); i++) {
+                next.push(temp->hijos[i]);
+            }
+
+            cout << endl << endl;
+        }  */
+    }
+
+    void printIndexes() {
+        for (int i = 0; i < indices.size(); i++) {
+            cout << indices[i] << " ";
         }
     }
 

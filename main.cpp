@@ -15,13 +15,13 @@ int main() {
     arbolB.insertar(7);
     arbolB.insertar(8);
     arbolB.insertar(8);
-    arbolB.imprimir();
+    //arbolB.imprimir();
     cout << arbolB.buscar(3) << endl;
     cout << arbolB.buscar(9) << endl;
     arbolB.eliminar(8);
-    arbolB.imprimir();
+    //arbolB.imprimir();
     arbolB.eliminar(8);
-    arbolB.imprimir();
+    //arbolB.imprimir();
     arbolB.eliminar(8);
     arbolB.imprimir();
     return 0;
